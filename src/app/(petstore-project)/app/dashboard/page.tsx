@@ -1,12 +1,9 @@
-import { getAllPets } from '@/actions/pets.action';
 import ContentBlock from '@/components/petstore-comp/content-block';
 import PetDetails from '@/components/petstore-comp/pet-details';
 import PetList from '@/components/petstore-comp/pet-list';
 import SearchForm from '@/components/petstore-comp/search-form';
 
 const DashboardPage = async () => {
-  const data = await getAllPets();
-
   return (
     <main>
       <div className="text-white flex justify-between py-8">
@@ -32,7 +29,7 @@ const DashboardPage = async () => {
 
           <div className="h-[300px] md:h-full">
             <ContentBlock>
-              <PetList pets={data} />
+              <PetList />
             </ContentBlock>
           </div>
         </div>

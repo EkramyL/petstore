@@ -1,12 +1,11 @@
-import { Pet } from '@/lib/types';
+'use client';
+import { usePetContext } from '@/lib/hooks';
 import Image from 'next/image';
 import React from 'react';
 
-interface PetListProps {
-  pets: Pet[];
-}
+const PetList = () => {
+  const { pets } = usePetContext();
 
-const PetList = ({ pets }: PetListProps) => {
   return (
     <ul className="bg-white border-b border-black/10 w-full h-full">
       {pets.map((pet) => (
