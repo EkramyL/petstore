@@ -1,7 +1,9 @@
+import AddPetButton from '@/components/petstore-comp/buttons/add-pet-button';
 import ContentBlock from '@/components/petstore-comp/content-block';
 import PetDetails from '@/components/petstore-comp/pet-details';
 import PetList from '@/components/petstore-comp/pet-list';
 import SearchForm from '@/components/petstore-comp/search-form';
+import Stats from '@/components/petstore-comp/stats';
 
 const DashboardPage = async () => {
   return (
@@ -15,10 +17,7 @@ const DashboardPage = async () => {
             Manage your pet daycare with ease
           </p>
         </section>
-        <section className="text-center">
-          <p className="text-2xl font-bold">2</p>
-          <p className=" text-lg font-medium opacity-80">current guests</p>
-        </section>
+        <Stats />
       </div>
 
       <div className="grid md:grid-cols-3 gap-4 md:h-[600px]">
@@ -27,9 +26,12 @@ const DashboardPage = async () => {
             <SearchForm />
           </div>
 
-          <div className="h-[300px] md:h-full">
+          <div className="relative h-[300px] md:h-full">
             <ContentBlock>
               <PetList />
+              <div className="absolute bottom-4 right-4">
+                <AddPetButton />
+              </div>
             </ContentBlock>
           </div>
         </div>

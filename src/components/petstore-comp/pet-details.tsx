@@ -2,9 +2,12 @@
 
 import { usePetContext } from '@/lib/hooks';
 import Image from 'next/image';
+import { Button } from '../ui/button';
+import CheckoutPetButton from './buttons/checkout-pet-button';
+import EditPetButton from './buttons/edit-pet-button';
 
 const PetDetails = () => {
-  const { selectedPet } = usePetContext();
+  const { selectedPet, handleCheckedoutPet } = usePetContext();
 
   return (
     <section className="w-full h-full">
@@ -23,6 +26,16 @@ const PetDetails = () => {
               className="w-[75px] h-[75px] rounded-full object-cover"
             />
             <h2 className="text-2xl font-semibold ml-5">{selectedPet?.name}</h2>
+            <div className="ml-auto space-x-2">
+              <EditPetButton />
+              <CheckoutPetButton
+                onClick={() => {
+                  handleCheckedoutPet(selectedPet.id);
+                }}
+              >
+                Checkout
+              </CheckoutPetButton>
+            </div>
           </div>
 
           <div className="flex justify-around py-10 text-center">
